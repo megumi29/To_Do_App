@@ -19,6 +19,60 @@ h3 {
   justify-content: center;
 }
 
+.user-section img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.user-section p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+
+.ToDo_List {
+  display: flex;
+  background-color: #b7a1c2;
+  border-radius: 6%;
+  position: absolute;
+  box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.267);
+}
+
+.ToDo_List ul {
+  margin-top: 0;
+  padding: 5%;
+}
+
+.catergory {
+  color: #7a1ba7;
+  font-size: 22px;
+  text-decoration: underline solid #7a1ba7;
+}
+
+.ToDo {
+  font-size: 14px;
+}
+
+.ToDo,
+.catergory,
+h3,
+.date {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.date {
+  font-size: 11px;
+}
+
+.checkboxes {
+  -webkit-appearance: none;
+  background-color: #ebebeb;
+  border: 2px solid #7a1ba7;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05),
+    inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 9px;
+  border-radius: 3px;
+}
+
 .App {
   text-align: center;
 }
