@@ -51,26 +51,29 @@ function App() {
 
       <div className="user-section">
         <img src={user.avatarImg} alt="users_avatar" />
-        <p>{user.username}</p>
-        <p>{user.message}</p>
+        <p style={userSection}>{user.username}</p>
+        <p style={userSectionMessage}>{user.message}</p>
       </div>
 
-      <div className="ToDo_List">
+      <div>
         <ul>
           <h3>ToDos</h3>
           <p className="date">Thursday, Sept 3, 2020</p>
           {toDoLists.map((toDoList) => {
             return (
-              <li>
-                <span>
-                  <p className="catergory">{toDoList.title}</p>
+              <li style={listStyles}>
+                {/* <span className="catergory">{toDoList.title}</span> */}
+                <div style={list}>
                   <input
                     className="checkboxes"
                     type="checkbox"
                     checked={toDoList.completed}
                   />
-                  <p className="ToDo">{toDoList.description}</p>
-                </span>
+                </div>
+
+                <div style={list}>
+                  <span className="ToDo">{toDoList.description}</span>
+                </div>
               </li>
             );
           })}
@@ -79,5 +82,32 @@ function App() {
     </>
   );
 }
+
+const listStyles = {
+  textAlign: "left",
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "center",
+  alignItems: "center",
+};
+
+const list = {
+  display: "flex",
+  flexDirection: "row",
+  margin: "0",
+  padding: ".5rem",
+  fontSize: "11px",
+};
+
+const userSectionMessage = {
+  fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
+  fontWeight: "bold",
+  textAlign: "center",
+};
+
+const userSection = {
+  fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
+  fontWeight: "bold",
+};
 
 export default App;

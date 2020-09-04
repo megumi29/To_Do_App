@@ -2,9 +2,9 @@ ul {
   list-style: none;
 }
 
-h2,
 h3 {
   text-align: center;
+  font-size: 24px;
 }
 
 .menu {
@@ -22,19 +22,6 @@ h3 {
 .user-section img {
   width: 150px;
   border-radius: 50%;
-}
-
-.user-section p {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: bold;
-}
-
-.ToDo_List {
-  display: flex;
-  background-color: #b7a1c2;
-  border-radius: 6%;
-  position: absolute;
-  box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.267);
 }
 
 .ToDo_List ul {
@@ -60,7 +47,8 @@ h3,
 }
 
 .date {
-  font-size: 11px;
+  font-size: 12px;
+  text-align: center;
 }
 
 .checkboxes {
