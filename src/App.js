@@ -28,32 +28,36 @@ let toDoList = [
     id: 3,
     title: "Chores",
     description: "Do Laundry",
-    completed: true,
+    completed: false,
   },
   {
     id: 4,
     title: "Work",
     description: "Fix ToDo list",
-    completed: false,
+    completed: true,
   },
 ];
 
 function App() {
   return (
-    <>
+    <div style={pageWrapper}>
       {/* Todo List Section */}
       <SideBar user={user} />
-      <p style={userSectionMessage}>{user.message}</p>
       <ul>
+        <p style={userSectionMessage}>{user.message}</p>
         <h3>ToDos</h3>
         <p className="date">Thursday, Sept 3, 2020</p>
         {toDoList.map((todo) => {
           return <Todo todo={todo} />;
         })}
       </ul>
-    </>
+    </div>
   );
 }
+
+const pageWrapper = {
+  display: "flex",
+};
 
 const userSectionMessage = {
   fontFamily: "Verdana, Geneva, Tahoma, sans-serif",

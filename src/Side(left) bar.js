@@ -34,7 +34,6 @@ export default SideBar;
 const navStyles = {
   sideNavSection: {
     minHeight: "100vh",
-    maxWidth: "35vh",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
