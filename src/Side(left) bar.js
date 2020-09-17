@@ -3,7 +3,6 @@ import AppName from "./images/AppName.png";
 
 function SideBar(props) {
   return (
-    // <div style={pageContainer}>
     <div style={navStyles.sideNavSection}>
       <img
         src={props.user.avatarImg}
@@ -12,7 +11,7 @@ function SideBar(props) {
       ></img>
       <p style={navStyles.sideNavUserName}>{props.user.username}</p>
       <nav>
-        <ul>
+        <ul className="menu_list">
           <li style={navStyles.navMenu}>Home</li>
           <li style={navStyles.navMenu}>Upcoming To Dos</li>
           <li style={navStyles.navMenu}>Create New To Do</li>
@@ -23,13 +22,10 @@ function SideBar(props) {
         </div>
       </nav>
     </div>
-    // </div>
   );
 }
 
 export default SideBar;
-
-// const pageContainer = {};
 
 const navStyles = {
   sideNavSection: {

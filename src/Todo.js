@@ -1,13 +1,16 @@
 import React from "react";
 
 function Todo(props) {
+  const handleDeleteNewToDoItem = () => props.onDeleteItem(props.todo.id);
+  const handleCheckedToDoItem = () => props.onCheckedTodo(props.todo.id);
   return (
-    <li style={listStyles.list}>
+    <li key={props.todo.id} style={listStyles.list}>
       <div>
         <input
           style={listStyles.checkBoxes}
           type="checkbox"
-          checked={props.todo.completed}
+          defaultChecked={props.todo.completed}
+          onChange={handleCheckedToDoItem}
         />
       </div>
 
@@ -20,6 +23,11 @@ function Todo(props) {
       >
         <span className="ToDo">{props.todo.description}</span>
       </div>
+      <span>
+        <button className="delete_button" onClick={handleDeleteNewToDoItem}>
+          x
+        </button>
+      </span>
     </li>
   );
 }
@@ -34,15 +42,15 @@ const listStyles = {
     alignItems: "center",
     border: "1px solid #8e7dbe",
     marginBottom: "1rem",
-    marginRight: "8rem",
-    marginLeft: "8rem",
+    marginRight: "9rem",
+    marginLeft: "9rem",
     borderRadius: "5rem",
     boxShadow: "0 .2rem .5rem 0 #8e7dbe",
   },
   checkBoxes: {
     display: "flex",
     flexDirection: "row",
-    margin: ".5rem",
+    margin: ".7rem",
     fontSize: "11px",
   },
   toDoCompleted: {
