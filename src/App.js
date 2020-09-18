@@ -5,14 +5,13 @@ import avatarImg from "./images/AuntPersona.jpg";
 import "./App.css";
 import shortid from "shortid";
 
-const user = {
-  username: "Jenna",
-  message: "Good Morning! What's On Your ToDos Today?",
-  avatarImg: avatarImg,
-};
-
 class App extends React.Component {
   state = {
+    user: {
+      username: "Jenna",
+      message: "",
+      avatarImg: avatarImg,
+    },
     toDoList: [
       {
         id: shortid.generate(),
@@ -59,16 +58,25 @@ class App extends React.Component {
   };
 
   handleAddNewToDoItem = (event) => {
-    this.setState((state) => {
-      return {
-        toDoList: [...state.toDoList, { description: state.newToDoItem }],
-        newToDoItem: "",
-      };
-    });
+    this.setState(
+      (state) => {
+        return {
+          toDoList: [...state.toDoList, { description: state.newToDoItem }],
+          newToDoItem: "",
+        };
+      },
+      () =>
+        alert(
+          "You added " +
+            this.state.toDoList[this.state.toDoList.length - 1].description
+        )
+    );
   };
 
-  handleAddNewToDoItemMessage = () => {
-    alert("You added " + this.state.newToDoItem);
+  handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      this.handleAddNewToDoItem();
+    }
   };
 
   handleDeleteNewToDoItem = (id) => {
@@ -91,9 +99,9 @@ class App extends React.Component {
     return (
       <div className="pageWrapper">
         {/* Todo List Section */}
-        <SideBar user={user} />
+        <SideBar user={this.user} />
         <ul>
-          <p className="userSectionMessage">{user.message}</p>
+          <p className="userSectionMessage">{this.message}</p>
           <h3>ToDos</h3>
           <p className="date">Thursday, Sept 3, 2020</p>
           {this.state.toDoList.map((todo) => (
@@ -112,7 +120,11 @@ class App extends React.Component {
             onChange={this.handleChangeToDoItem}
             value={this.state.newToDoItem}
           ></input>
-          <button className="addButton" onClick={this.handleAddNewToDoItem}>
+          <button
+            className="addButton"
+            // onClick={this.handleAddNewToDoItem}
+            onKeyDown={this.handleKeyDown}
+          >
             Add New ToDo
           </button>
         </div>

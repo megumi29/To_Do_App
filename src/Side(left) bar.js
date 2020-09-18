@@ -1,15 +1,16 @@
 import React from "react";
 import AppName from "./images/AppName.png";
+import avatarImg from "./images/AuntPersona.jpg";
 
 function SideBar(props) {
   return (
     <div style={navStyles.sideNavSection}>
       <img
-        src={props.user.avatarImg}
+        src={avatarImg}
         style={navStyles.userSectionImg}
         alt="users_avatar"
       ></img>
-      <p style={navStyles.sideNavUserName}>{props.user.username}</p>
+      <p style={navStyles.sideNavUserName}>{props.username}</p>
       <nav>
         <ul className="menu_list">
           <li style={navStyles.navMenu}>Home</li>
