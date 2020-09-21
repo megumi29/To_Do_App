@@ -1,10 +1,12 @@
 import React from "react";
 import SideBar from "./Side(left) bar";
 import Todo from "./Todo";
+import Dashboard from "./Dashboard";
 import avatarImg from "./images/AuntPersona.jpg";
 import "./App.css";
 import shortid from "shortid";
 
+const TODO_LIST_KEY = "todoapp-list";
 class App extends React.Component {
   state = {
     user: {
@@ -40,6 +42,22 @@ class App extends React.Component {
     ],
     newToDoItem: "",
   };
+
+  componentDidMount() {
+    let todoListStr = localStorage.getItem(TODO_LIST_KEY);
+    if (todoListStr) {
+      this.setState({
+        toDoList: JSON.parse(todoListStr),
+      });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.toDoList !== prevState.toDoList) {
+      let todoListStr = JSON.stringify(this.state.toDoList);
+      localStorage.setItem(TODO_LIST_KEY, todoListStr);
+    }
+  }
 
   handleCheckedToDoItem = (id) => {
     this.setState((state) => {
@@ -102,6 +120,7 @@ class App extends React.Component {
         <SideBar user={this.user} />
         <ul>
           <p className="userSectionMessage">{this.message}</p>
+          {/* <Dashboard /> */}
           <h3>ToDos</h3>
           <p className="date">Thursday, Sept 3, 2020</p>
           {this.state.toDoList.map((todo) => (
@@ -122,7 +141,7 @@ class App extends React.Component {
           ></input>
           <button
             className="addButton"
-            // onClick={this.handleAddNewToDoItem}
+            onClick={this.handleAddNewToDoItem}
             onKeyDown={this.handleKeyDown}
           >
             Add New ToDo
