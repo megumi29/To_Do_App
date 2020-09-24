@@ -37,19 +37,15 @@ export default Todo;
 const listStyles = {
   list: {
     display: "flex",
-    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     border: "1px solid #8e7dbe",
     marginBottom: "1rem",
-    marginRight: "9rem",
-    marginLeft: "9rem",
     borderRadius: "5rem",
     boxShadow: "0 .2rem .5rem 0 #8e7dbe",
   },
   checkBoxes: {
     display: "flex",
-    flexDirection: "row",
     margin: ".7rem",
     fontSize: "11px",
   },
